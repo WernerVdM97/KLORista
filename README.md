@@ -15,26 +15,39 @@
 
 # by Werner
 
-Originally the KLOR Konrad (shoutout @GEISTGEISTGEIST); KLORista is a 40 (+2) key column-staggered split keyboard, encoders, OLED displays.
+Originally the KLOR Konrad (shoutout @GEIGEIGEIST); KLORista is a 40(+2)-key, column-staggered split-keyboard. 
 
-## 8 Layer Keymap
+Featuring encoders, OLED displays. Optionally, haptic feedback and sound.
 
-QWERTY (Windows/Mac variants) with navigation-, number-, math-, and symbol layers.\
+Deviations from the original design (including an improved key switchplate) is included in this repo.
+
+## Multi Layer Keymap
+
+QWERTY base with navigation-, number-, math-, and symbol layers.\
 ft. League of Legends layer (*left-only).
 
 ![Layer-0](/docs/images/keyboard-layout.png)
 
 See [detailed layers](/docs/layers.pdf).
 
-## RP2040 Sea-Picro
+## RP2040 Sea-Picro with QMK 
 
 Place in the keyboards folder of your qmk installation.
 
-`qmk compile -kb klorista -km default`
+`cp -r klorista ~/qmk_firmware/keyboards`
 
+and run
+
+`qmk compile -kb klorista -km default`
 
 ## TODO
 
 - [x] solder & assemble
-- [ ] program Layers
+- [x] program base layer
+- [x] add NAV layers
+- [ ] add MATH layers
+- [ ] add NUM layers
+- [ ] add SYM layers
+- [ ] add LOL layers
+- [ ] improve OLED features
 - [ ] L/R OLED ft wpm animation ([tutorial](https://www.youtube.com/watch?v=OJSOEStpPIo))
