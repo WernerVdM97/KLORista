@@ -616,13 +616,17 @@ static void render_anim(void) {
 } 
 
 bool oled_task_kb(void) {
+    oled_invert(false);
     if (!oled_task_user()) {
         return false;
     }
     if(IS_LAYER_ON(_LOL1) || IS_LAYER_ON(_LOL2)){
-        oled_clear;
+        oled_clear();
+        oled_invert(true);
         oled_set_cursor(0, 1);
-        oled_write("welcome A atrox", false);
+        oled_write(" welcome", false);
+        oled_set_cursor(0, 3);
+        oled_write(" A atrox", false);
 
     } else{
     if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
