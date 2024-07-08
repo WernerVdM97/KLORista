@@ -6,6 +6,11 @@ for more options.
 */
 
 #define TAPPING_TERM 170
+#define MASTER_RIGHT
+
+// Enable OLED updates on slave
+#define SPLIT_WPM_ENABLE
+#define SPLIT_LED_STATE_ENABLE
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
