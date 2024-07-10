@@ -72,14 +72,15 @@ enum custom_keycodes {
 #define GUI_L MT(MOD_LGUI, KC_L)
 #define ALT_SCL MT(MOD_LALT, KC_SCLN)
 
+// THUMB MODS ├────────────────────────────────────────┐
+#define SYM_SPC LT(_NUM, KC_BSPC)
+
 // LEFT THUMB MODS ├───────────────────────────────────┐
 #define NAVR_ENT LT(_NAVR, KC_ENT)
-// #define MATHL MO(_MATHL)
-#define SYM_BSPC LT(_NUM, KC_BSPC)
+#define MATHL_BSPC MO(_MATHL)
 
 // RIGHT THUMB MODS ├──────────────────────────────────┐
-#define SYM_SPC LT(_NUM, KC_SPC)
-// #define MATHR MO(_MATHR)
+#define MATHR_BSPC MO(_MATHR)
 #define NAVL_TAB LT(_NAVL, KC_TAB)
 
 // MATHL + MATHR = SYM //TODO
@@ -123,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   ALT_A,    GUI_S,    SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    GUI_L,    ALT_SCL,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SCRL,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INS,
-                                  SYM_SPC,  MATHL,    NAVL_TAB,                      NAVR_ENT, MATHR,   SYM_BSPC  
+                                  SYM_SPC,  MATHL_BSPC,NAVL_TAB,                     NAVR_ENT, MATHR_BSPC,    SYM_SPC  
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -146,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   ALT_A,    GUI_S,    SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    GUI_L,    ALT_SCL,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SCRL,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INS,
-                                  SYM_SPC,  MATHL,    NAVL_TAB,                      NAVR_ENT, MATHR,   SYM_BSPC  
+                                  SYM_SPC,  MATHL_BSPC, NAVL_TAB,                    NAVR_ENT, MATHR_BSPC,    SYM_SPC  
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -215,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               S(KC_6),  KC_BSLS,  S(KC_9),  S(KC_0),  KC_EQL,                        _______,  _______,  _______,  _______,  _______,
     TG(_LOL1),S(KC_7),  S(KC_BSLS),KC_LBRC, KC_RBRC,  S(KC_8),                       _______,  _______,  _______,  _______,  _______,  _______,
     XXXXXXX,  S(KC_1),  S(KC_2),  S(KC_3),  S(KC_4),  S(KC_5),  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
-                                  SYM_BSPC,  _______, _______ ,                      _______ ,  _______,  KC_DEL
+                                  _______,  _______, _______ ,                      _______ ,  KC_DEL,  KC_MINS
  ),
 /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -238,7 +239,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               _______,  _______,  _______,  _______,  _______,                       KC_EQL,   S(KC_9),  S(KC_0),  KC_BSLS,  S(KC_6),
     _______,  _______,  _______,  _______,  _______,  _______,                       S(KC_8),  KC_LBRC,  KC_RBRC,  S(KC_BSLS),S(KC_7), TG(_LOL1),
     XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  S(KC_5),  S(KC_4),  S(KC_3),  S(KC_2),  S(KC_1),  OS_SWAP,
-                                  _______,  _______,  KC_MINS,                       _______,  _______,  _______
+                                  KC_MINS,  KC_DEL,   _______,                       _______,  _______,  _______
  ),
 /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
