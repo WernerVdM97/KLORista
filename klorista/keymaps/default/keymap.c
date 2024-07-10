@@ -72,16 +72,15 @@ enum custom_keycodes {
 #define GUI_L MT(MOD_LGUI, KC_L)
 #define ALT_SCL MT(MOD_LALT, KC_SCLN)
 
-// THUMB MODS ├────────────────────────────────────────┐
-#define SYM_SPC LT(_NUM, KC_BSPC)
-
 // LEFT THUMB MODS ├───────────────────────────────────┐
-#define NAVR_ENT LT(_NAVR, KC_ENT)
-#define MATHL_BSPC MO(_MATHL)
+#define NAVL_SPC LT(_NAVL, KC_SPC)
+#define MATHL_BSPC LT(_MATHL, KC_BSPC)
+#define SYM_TAB LT(_NUM, KC_TAB)
 
 // RIGHT THUMB MODS ├──────────────────────────────────┐
-#define MATHR_BSPC MO(_MATHR)
-#define NAVL_TAB LT(_NAVL, KC_TAB)
+#define NAVR_SPC LT(_NAVR, KC_SPC)
+#define MATHR_BSPC LT(_MATHR, KC_BSPC)
+#define SYM_ENT LT(_NUM, KC_ENT)
 
 // MATHL + MATHR = SYM //TODO
 
@@ -116,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
    │   esc   │    Z    │    X    │    C    │    V    │    B    ││  MUTE  ││ SCRLCK ││    N    │    M    │    ,    │    .    │    /    │   ins   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │ L-SPACE │  _MathL │ L-TAB   │                    │ L/ENT   │  _MathR │ L/BCKSP │
+                                 │ L-SPC   │ Ml-BSPC │  L-TAB  │                    │ L/ENTR  │ Ml-BSPC │  L/SPC  │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘ */
 
    [_BASE] = LAYOUT_konrad(
@@ -124,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   ALT_A,    GUI_S,    SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    GUI_L,    ALT_SCL,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SCRL,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INS,
-                                  SYM_SPC,  MATHL_BSPC,NAVL_TAB,                     NAVR_ENT, MATHR_BSPC,    SYM_SPC  
+                                  NAVL_SPC, MATHL_BSPC,SYM_TAB,                     SYM_ENT,   MATHR_BSPC,NAVR_SPC  
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -139,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
    │   esc   │    Z    │    X    │    C    │    V    │    B    ││  MUTE  ││ SCRLCK ││    N    │    M    │    ,    │    .    │    /    │   ins   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │ L-SPACE │  _MathL │ L-TAB   │                    │ L/ENT   │  _MathR │ L/BCKSP │
+                                 │ L-SPC   │ Ml-BSPC │  L-TAB  │                    │ L/ENTR  │ Ml-BSPC │  L/SPC  │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘ */
 
    [_BASE2] = LAYOUT_konrad(
@@ -147,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   ALT_A,    GUI_S,    SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    GUI_L,    ALT_SCL,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SCRL,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INS,
-                                  SYM_SPC,  MATHL_BSPC, NAVL_TAB,                    NAVR_ENT, MATHR_BSPC,    SYM_SPC  
+                                  NAVL_SPC, MATHL_BSPC,SYM_TAB,                     SYM_ENT,   MATHR_BSPC,NAVR_SPC  
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
