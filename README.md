@@ -43,11 +43,7 @@ and run
 ## TODO
 
 - [x] solder & assemble
-- [x] program base layer
-- [x] add NAV layers
-- [ ] add MATH layers
-- [ ] add NUM layers
-- [ ] add SYM layers
-- [ ] add LOL layers
-- [ ] improve OLED features
-- [ ] L/R OLED ft wpm animation ([tutorial](https://www.youtube.com/watch?v=OJSOEStpPIo))
+- [x] program based(+OS), NAV, MATH, NUM, SYM, LOL layers
+- [x] improve OLED features
+- [x] L/R OLED ft wpm animation ([tutorial](https://www.youtube.com/watch?v=OJSOEStpPIo))
+- [ ] LoL layer
