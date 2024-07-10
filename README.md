@@ -43,7 +43,8 @@ and run
 ## TODO
 
 - [x] solder & assemble
-- [x] program based(+OS), NAV, MATH, NUM, SYM, LOL layers
+- [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), and number- layers
 - [x] improve OLED features
 - [x] L/R OLED ft wpm animation ([tutorial](https://www.youtube.com/watch?v=OJSOEStpPIo))
+- [ ] Sym layer
 - [ ] LoL layer
