@@ -48,3 +48,4 @@ and run
 - [x] L/R OLED ft wpm animation ([tutorial](https://www.youtube.com/watch?v=OJSOEStpPIo))
 - [ ] Sym layer
 - [ ] LoL layer
+- [ ] Encoder layers
