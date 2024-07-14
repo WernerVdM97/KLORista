@@ -60,6 +60,8 @@ const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] =
  { {0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3} }, \
 };
 
+uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = {1, 0};
+
 #endif //SWAP_HANDS_ENABLE
 
 
