@@ -34,15 +34,14 @@ char wpm_str[10];
 // │ d e f i n e   l a y e r s                                 │
 // └───────────────────────────────────────────────────────────┘
 enum klor_layers {
-    /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
-    _BASE,
-    _BASE2,
-    _MATHL,
+    _BASE,  // WIN
+    _BASE2, // MAC
+    _MATHL, // symbols
     _MATHR,
-    _NAVL,
+    _NAVL,  // navigation
     _NAVR,
-    _NUM,
-    _SYM,
+    _NUM,   // numbers
+    _SYM,   // functions
     _LOL1,
     _LOL2
 };
@@ -53,7 +52,14 @@ enum custom_keycodes {
     NAVL = SAFE_RANGE,
     NAVR,
     OS_SWAP,
-    MAKE_H
+    MAKE_H,
+    // Encoder Maros
+    SCRL_UP,
+    SCRL_DN,
+    REDO,
+    UNDO,
+    NEXT,
+    PREV
 };
 
 // ┌───────────────────────────────────────────────────────────┐
@@ -145,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   ALT_A,    GUI_S,    SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    GUI_L,    ALT_SCL,  KC_QUOT,
-    KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SCRL,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INS,
+    KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   XXXXXXX,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_X,
                                   MATHL_BSPC,NAVL_SPC,SYM_TAB,                       SYM_ENT,  NAVR_SPC,MATHR_BSPC  
  ),
  /*
@@ -167,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_NAVL] = LAYOUT_konrad(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               XXXXXXX,  KC_HOME,  KC_UP,    KC_END,   KC_PGUP,                       _______,  _______,  _______,  _______,  _______,
-    TG(_LOL1),  KC_MSTP,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,                       _______,  _______,  _______,  _______,  _______,  _______,
+    TG(_LOL1),KC_MSTP,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,                       _______,  _______,  _______,  _______,  _______,  _______,
     _______,  XXXXXXX,  KC_MPRV,  KC_MPLY,  KC_MNXT,  XXXXXXX,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
                                   _______,  _______,  _______,                       _______, S(KC_MINS),KC_DEL
  ),
@@ -259,7 +265,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_NUM] = LAYOUT_konrad(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                         KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,
-    _______,  KC_1,     KC_2   ,  KC_3   ,  KC_4,     KC_5   ,                       KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0  , _______,
+    _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                          KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0  , _______,
     XXXXXXX,  KC_F11,   KC_F12,   _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
                                   _______,  XXXXXXX,  _______,                       _______,  XXXXXXX,  _______
  ),
@@ -283,7 +289,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_CAPS,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  KC_CAPS,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  _______,   _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,z
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  _______,   _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                                   _______,  _______,  _______,                       _______,  _______,  _______
  ),
 
@@ -305,10 +311,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
    [_LOL1] = LAYOUT_konrad(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-              _______,  _______,  _______,  _______,  KC_Z,                          XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    TO(_BASE),_______,  _______,  _______,  KC_Z,     _______,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  TO(_BASE),
-    XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                  _______,  MO(_LOL2),_______,                       XXXXXXX,  XXXXXXX,  XXXXXXX
+              KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                          KC_5,     KC_4,     KC_3,     KC_2,     KC_1,
+    MOD_LSFT, KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_T,     KC_R,     KC_E,     KC_W,     KC_Q,     MOD_LSFT,
+    KC_C,     KC_A,     KC_S,     KC_D,     KC_F,     KC_P,     XXXXXXX,   XXXXXXX,  KC_P,     KC_F,     KC_D,     KC_S,     KC_A,     KC_C,
+                                  MOD_LALT, KC_SPC,   MO(_LOL2),                     MO(_LOL2),KC_SPC,   MOD_LALT
  ),
 /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -328,10 +334,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
    [_LOL2] = LAYOUT_konrad(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-              _______,  _______,  _______,  _______,  KC_C,                          XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    _______,  _______,  _______,  _______,  KC_C,     _______,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                  _______,  _______,  _______,                       XXXXXXX,  XXXXXXX,  XXXXXXX
+              KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                         KC_F5,    KC_F4,    KC_F3,    KC_F2,    KC_F1,
+    TO(_BASE),C(KC_Q),  C(KC_W),  C(KC_E),  C(KC_R),  KC_Y,                          KC_Y,     C(KC_R),  C(KC_E),  C(KC_W),  C(KC_Q),  TO(_BASE),
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+                                  XXXXXXX,  XXXXXXX,  _______,                       _______,  XXXXXXX,  XXXXXXX
  )
 };
 
@@ -685,14 +691,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
           if (!keymap_config.swap_lctl_lgui) {
             keymap_config.swap_lctl_lgui = true;  // ─── MAC
-            layer_on(_BASE2);
+            set_single_persistent_default_layer(_BASE2);
             #ifdef AUDIO_ENABLE
               PLAY_SONG(mac_song);
             #endif // AUDIO_ENABLE
           }
           else {
             keymap_config.swap_lctl_lgui = false; // ─── WIN
-            layer_off(_BASE2);
+            set_single_persistent_default_layer(_BASE);
             #ifdef AUDIO_ENABLE
               PLAY_SONG(winxp_song);
             #endif // AUDIO_ENABLE
@@ -748,6 +754,80 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif // HAPTIC_ENABL
       }
       break;
+    case UNDO:
+      if (record->event.pressed) {
+        if (keymap_config.swap_lctl_lgui) {
+          register_code(KC_LGUI);
+          tap_code(KC_Z);
+          unregister_code(KC_LGUI);
+        }else{
+          register_code(KC_LCTL);
+          tap_code(KC_Z);
+          unregister_code(KC_LCTL);
+        }
+      }
+      break;
+    case REDO:
+      if (record->event.pressed) {
+        if (keymap_config.swap_lctl_lgui) { // mac
+          register_code(KC_LGUI);
+          register_code(KC_LSFT);
+          tap_code(KC_Z);
+          unregister_code(KC_LSFT);
+          unregister_code(KC_LGUI);
+        }else{                              // win
+          register_code(KC_LCTL);
+          register_code(KC_LSFT);
+          tap_code(KC_Z);
+          unregister_code(KC_LSFT);
+          unregister_code(KC_LCTL);
+        }
+      }
+      break;
+    case SCRL_DN: // mac VSCode
+      if (record->event.pressed) {
+        register_code(KC_LCTL);
+        tap_code(KC_PGDN);
+        unregister_code(KC_LCTL);
+      }
+      break;
+    case SCRL_UP: // mac VSCode
+      if (record->event.pressed) {
+        register_code(KC_LCTL);
+        tap_code(KC_PGUP);
+        unregister_code(KC_LCTL);
+      }
+      break;
+    case PREV: // VSCode
+      if (record->event.pressed) {
+        if (keymap_config.swap_lctl_lgui) {
+          register_code(KC_LGUI);
+          tap_code(KC_T);
+          unregister_code(KC_LGUI);
+        }else{
+          register_code(KC_LCTL);
+          tap_code(KC_T);
+          unregister_code(KC_LSFT);
+        }
+      }
+      break;
+    case NEXT: // VSCode
+      if (record->event.pressed) {
+        if (keymap_config.swap_lctl_lgui) {
+          register_code(KC_LGUI);
+          register_code(KC_LSFT);
+          tap_code(KC_T);
+          unregister_code(KC_LSFT);
+          unregister_code(KC_LGUI);
+        }else{
+          register_code(KC_LCTL);
+          register_code(KC_LSFT);
+          tap_code(KC_T);
+          unregister_code(KC_LSFT);
+          unregister_code(KC_LCTL);
+        }
+      }
+      break;
   }
   return true;
 }
@@ -758,54 +838,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
-#ifdef ENCODER_ENABLE
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  L                                          │
-// └───────────────────────────────────────────────────────────┘
-
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-      if(IS_LAYER_ON(_MATHL)){
-          if (clockwise) {
-              tap_code(KC_BRIU);
-          } else {
-              tap_code(KC_BRID);
-          }
-      }else {
-          if (clockwise) {
-              tap_code(KC_VOLU);
-          } else {
-              tap_code(KC_VOLD);
-          }
-      }
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  R                                          │
-// └───────────────────────────────────────────────────────────┘
-
-    } else if (index == 1) {
-      if(IS_LAYER_ON(_MATHR)){
-          if (clockwise) {
-              tap_code(KC_MNXT);
-          } else {
-              tap_code(KC_MPRV);
-          }
-      }else {
-            if (clockwise) {
-              tap_code(KC_VOLU);
-          } else {
-              tap_code(KC_VOLD);
-          }
-      }
-    }
-    return true;
-}
-
-#endif // ENCODER_ENABLE
-
-
-
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    // Layer:                    Left encoder                                   Right encoder
+    //                           down         up                                down          up
+    [_BASE] =   { ENCODER_CCW_CW(KC_VOLD,     KC_VOLU),           ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    [_BASE2] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(SCRL_DN,     SCRL_UP) },
+    [_NAVL] =   { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(PREV,        NEXT) },
+    [_NAVR] =   { ENCODER_CCW_CW(PREV,        NEXT),              ENCODER_CCW_CW(_______,     _______) },
+    [_MATHL] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
+    [_MATHR] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
+    [_NUM] =    { ENCODER_CCW_CW(KC_BRID,     KC_BRIU),           ENCODER_CCW_CW(UNDO,        REDO) },
+    [_SYM] =    { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
+    [_LOL1] =   { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
+    [_LOL2] =   { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
+};
 
 /*
        ▄██████████████▄
