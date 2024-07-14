@@ -335,8 +335,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_LOL2] = LAYOUT_konrad(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                         KC_F5,    KC_F4,    KC_F3,    KC_F2,    KC_F1,
-    XXXXXXX,  C(KC_Q),  C(KC_W),  C(KC_E),  C(KC_R),  KC_Y,                          KC_Y,     C(KC_R),  C(KC_E),  C(KC_W),  C(KC_Q),  TO(_BASE),
-    TO(_BASE),XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,  C(KC_Q),  C(KC_W),  C(KC_E),  C(KC_R),  KC_Y,                          KC_Y,     C(KC_R),  C(KC_E),  C(KC_W),  C(KC_Q),  XXXXXXX,
+    TO(_BASE),XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  TO(_BASE),
                                   XXXXXXX,  XXXXXXX,  _______,                       _______,  XXXXXXX,  XXXXXXX
  )
 };
