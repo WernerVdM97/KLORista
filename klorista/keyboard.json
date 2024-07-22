@@ -114,7 +114,7 @@
     },
     "tapping": {
         "force_hold": true,
-        "term": 200
+        "term": 250
     },
     "url": "https://github.com/WernerVdM97/KLORista",
     "usb": {
