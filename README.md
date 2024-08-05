@@ -11,7 +11,7 @@
 ██       █     █          ▀▄            ▄▀      █         █   █  █     █     █       █     █  
 █         █    █▄▄▄▄▄▄▄▄    ▀▀▀▄▄▄▄▄▄▀▀▀        █          █  █   █████      █        ███████ 
 ```
-![](/docs/images/klorista.png)
+![](/docs/images/photo.jpg)
 
 # by Werner
 
@@ -26,7 +26,7 @@ Deviations from the original design (including an improved key switchplate) is i
 QWERTY base with navigation-, number-, math-, and symbol layers.\
 ft. League of Legends layer (*left-only).
 
-![Layer-0](/docs/images/layer_0.png)
+![Layer-0](/docs/images/keyboard-layout.png)
 
 ## RP2040 Sea-Picro with QMK 
 
