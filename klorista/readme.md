@@ -1,5 +1,7 @@
 # Compiling
 
+![](/docs/images/mockup.jpg)
+
 You can use this command to compile the firmware
 `qmk compile -kb klor -km default`
 
