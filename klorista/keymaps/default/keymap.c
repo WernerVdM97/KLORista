@@ -830,10 +830,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     // Layer:                    Left encoder                                   Right encoder
     //                           down         up                                down          up
-    [_BASE] =   { ENCODER_CCW_CW(KC_VOLD,     KC_VOLU),           ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    // [_BASE] =   { ENCODER_CCW_CW(KC_VOLD,     KC_VOLU),           ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) }, // KC_MS_... doesn't work?
+    [_BASE] =   { ENCODER_CCW_CW(KC_VOLD,     KC_VOLU),           ENCODER_CCW_CW(SCRL_DN,     SCRL_UP) },
     [_BASE2] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(SCRL_DN,     SCRL_UP) },
-    [_NAVL] =   { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(PREV,        NEXT) },
-    [_NAVR] =   { ENCODER_CCW_CW(PREV,        NEXT),              ENCODER_CCW_CW(_______,     _______) },
+    [_NAVL] =   { ENCODER_CCW_CW(PREV,        NEXT),              ENCODER_CCW_CW(PREV,        NEXT) },
+    [_NAVR] =   { ENCODER_CCW_CW(PREV,        NEXT),              ENCODER_CCW_CW(PREV,        NEXT) },
     [_MATHL] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
     [_MATHR] =  { ENCODER_CCW_CW(_______,     _______),           ENCODER_CCW_CW(_______,     _______) },
     [_NUM] =    { ENCODER_CCW_CW(KC_BRID,     KC_BRIU),           ENCODER_CCW_CW(UNDO,        REDO) },
