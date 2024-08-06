@@ -42,7 +42,15 @@ and run
 
 - [x] solder & assemble
 - [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), number, LOL- layers
+  - [ ] double tap F11/12
+  - [ ] zxcv num edit shortcuts
+  - [ ] windows encoder scroll fix
+  - [ ] decrease tap term
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
 - [ ] Function layer
+- [ ] update keyboard layout
+  - [ ] fix encoder colour
+  - [ ] fix lol position
+  - [ ] add all layer functionalities
