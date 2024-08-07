@@ -5,7 +5,7 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.
 */
 
-#define TAPPING_TERM 250
+#define TAPPING_TERM 200
 #define MASTER_RIGHT
 
 // Enable OLED updates on slave
