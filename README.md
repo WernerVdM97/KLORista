@@ -42,8 +42,8 @@ and run
 
 - [x] solder & assemble
 - [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), number, LOL- layers
-  - [ ] double tap F11/12
+  - [ ] swaphands toggle
+  - [ ] Fun (R) layer
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
-- [ ] Function layer
