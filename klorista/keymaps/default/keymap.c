@@ -168,8 +168,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │    ▼    │    ▼    │    ▼    │                    │         │    _    │   DEL   │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘ */
-  // TODO: consider SH_TOGG for bot left key
-   [_NAVL] = LAYOUT_konrad(
+  // TODO:
+  // - consider SH_TOGG for bot left key
+  // - setup lock shortcut on linux/windows/mac (eg GUI+l on linux)
+  [_NAVL] = LAYOUT_konrad(
               KC_F11,   KC_F12,   _______,  C(KC_R),  C(KC_T),                       _______,  _______,  _______,  _______,  _______,
     TG(_LOL1),_______,  KC_LGUI,  KC_CAPS,  C(KC_F),  C(KC_G),                       _______,  _______,  _______,  _______,  _______,  _______,
     _______,  _______,  _______,  _______,  C(KC_V),  C(KC_B),  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
