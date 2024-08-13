@@ -44,6 +44,7 @@ and run
 - [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), number, LOL- layers
   - [ ] swaphands toggle
   - [ ] Fun (R) layer
+  - [ ] Abort modifiers key
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
