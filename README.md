@@ -41,10 +41,12 @@ and run
 ## TODO
 
 - [x] solder & assemble
+	- [ ] clean keys
+	- [x] add home row
 - [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), number, LOL- layers
-  - [ ] swaphands toggle
-  - [ ] Fun (R) layer
-  - [ ] Abort modifiers key
+	- [ ] swaphands toggle
+	- [ ] Fun (R) layer
+	- [ ] Abort modifiers key
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
