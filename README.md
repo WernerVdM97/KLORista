@@ -19,11 +19,11 @@ Originally the KLOR Konrad (shoutout @GEIGEIGEIST); KLORista is a 40(+2)-key, co
 
 Featuring encoders, OLED displays. Optionally, haptic feedback and sound.
 
-Deviations from the original design (including an improved key switchplate) is included in this repo.
+Software deviations from the original design (and a key switchplate with larger tolerance) are made in this repo.
 
 ## Multi Layer Keymap
 
-QWERTY base with navigation-, number-, math-, and symbol layers.\
+QWERTY base with navigation-, number-, and symbol layers.\
 ft. League of Legends layer (*left-only).
 
 ![Layer-0](/docs/images/layout.png)
@@ -40,13 +40,9 @@ and run
 
 ## TODO
 
-- [x] solder & assemble
-	- [ ] clean keys
-	- [x] add home row
-- [x] program base(Mac/Win), Navigation(l/r), Symbols (l/r), number, LOL- layers
+- [x] program base(Mac/Win), navigation(l/r), symbols, number, LOL- layers
 	- [ ] swaphands toggle
-	- [ ] Fun (R) layer
-	- [ ] Abort modifiers key
+	- [ ] macros..?
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
