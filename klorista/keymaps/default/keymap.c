@@ -65,24 +65,22 @@ enum custom_keycodes {
 // └───────────────────────────────────────────────────────────┘
 
 // LEFT HOME ROW MODS ├────────────────────────────────┐
-#define ALT_A MT(MOD_LALT, KC_A)
 #define SHT_D MT(MOD_LSFT, KC_D)
 #define CTL_F MT(MOD_LCTL, KC_F)
 
 // RIGHT HOME ROW MODS ├───────────────────────────────┐
 #define CTL_J MT(MOD_LCTL, KC_J)
 #define SHT_K MT(MOD_RSFT, KC_K)
-#define ALT_SCL MT(MOD_LALT, KC_SCLN)
 
 // LEFT THUMB MODS ├───────────────────────────────────┐
 #define NAVL_SPC LT(_NAVL, KC_SPC)
 #define NUM_TAB LT(_NUM, KC_TAB)
+#define ESC_GUI MT(MOD_LGUI, KC_ESC)
 
 // RIGHT THUMB MODS ├──────────────────────────────────┐
 #define NAVR_SPC LT(_NAVR, KC_SPC)
 #define SYM_ENT LT(_MATH, KC_ENT)
-
-// NAVL + NAVR = FUN //TODO
+#define BSPC_ALT MT(MOD_LALT, KC_BSPC)
 
 // ┌───────────────────────────────────────────────────────────┐
 // │ d e f i n e   s o u n d s                                 │
@@ -113,17 +111,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │    `    │    A    │    S    │    D    │    F    │    G    ├─╯                ╰─┤    H    │    J    │    K    │    L    │    ;    │    "    │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │   esc   │    Z    │    X    │    C    │    V    │    B    ││  MUTE  ││ SLEEP  ││    N    │    M    │    ,    │    .    │    /    │   App   │
+   │         │    Z    │    X    │    C    │    V    │    B    ││  MUTE  ││ SLEEP  ││    N    │    M    │    ,    │    .    │    /    │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │   ALT   │ L-SPC   │  L-TAB  │                    │ L/ENTR  │ L/SPC   │  BSPC   │
+                                 │ ESC/GUI │  L-SPC  │  L-TAB  │                    │  L/ENTR │  L/SPC  │ BSP/ALT │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘ */
-  // TODO: consider SH_TOGG for bot right key
    [_BASE] = LAYOUT_konrad(
- //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-    KC_GRV,   ALT_A,    KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
-    KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_APP,
-                                  MOD_LALT, NAVL_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, KC_BSPC
+    KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
+    XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+                                  ESC_GUI,  NAVL_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -134,25 +130,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
    [_BASE2] = LAYOUT_konrad(
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-    KC_GRV,   ALT_A,    KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
+    KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_MCTL,
-                                  MOD_LALT, NAVL_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, KC_BSPC  
+                                  ESC_GUI,  NAVL_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
    ┌───────────────────────────────────────────────────────────┐
-   │ COMBO left                                                │
+   │ NAV left                                                  │
    └───────────────────────────────────────────────────────────┘
    */
   // TODO:
   // - consider SH_TOGG for bot left key
-  // - setup lock shortcut on linux/windows/mac (eg GUI+l on linux)
+  // - setup lock shortcut on mac (eg GUI+l on linux)
   [_NAVL] = LAYOUT_konrad(
                _______, _______,  _______,  C(KC_R),  C(KC_T),                       _______,  _______,  _______,  _______,  _______,
-    TG(_LOL1), KC_LALT, _______,  KC_CAPS,  C(KC_F),  C(KC_G),                       _______,  _______,  _______,  _______,  _______,  _______,
-  LGUI(KC_ESC),_______, _______,  _______,  C(KC_V),  C(KC_B),  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
-                                  _______,  _______,  _______,                        _______, S(KC_MINS),KC_DEL
+    OS_SWAP,   _______, _______,  KC_CAPS,  C(KC_F),  C(KC_G),                       _______,  _______,  _______,  _______,  _______,  _______,
+    _______,   _______, _______,  _______,  C(KC_V),  C(KC_B), LGUI(KC_ESC),_______, _______,  _______,  _______,  _______,  _______,  _______,
+                                  _______,  _______,  _______,                       _______, S(KC_MINS),KC_LALT
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -165,15 +161,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │         │         │         │         │         │         ├─╯                ╰─┤    ←    │    ↓    │    ↑    │    →    │    ▀    │  _LOL   │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │         │         │         │         │         │         ││        ││        ││   HOME  │   PG↓   │   PG↑   │   END   │         │    OS   │
+   │         │         │         │         │         │         ││        ││        ││   HOME  │   PG↓   │   PG↑   │   END   │         │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │         │    _    │         │                    │         │         │         │
+                                 │   GUI   │    _    │         │                    │         │         │         │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘ */
    [_NAVR] = LAYOUT_konrad(
-              _______,  _______,  _______,  _______,  _______,                       _______,  KC_MPRV,  KC_MPLY, KC_MNXT , XXXXXXX,
-    XXXXXXX,  _______,  _______,  _______,  _______,  _______,                       KC_LEFT,  KC_DOWN,  KC_UP,   KC_RGHT,  KC_MSTP,  TG(_LOL1),
-    XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  KC_HOME,  KC_PGDN,  KC_PGUP, KC_END,   XXXXXXX,  OS_SWAP,
-                                  _______,  _______,  _______,                       _______,   _______, KC_DEL
+              _______,  _______,  _______,  _______,  _______,                       _______,  KC_MPRV,  KC_MPLY, KC_MNXT , _______,
+    _______,  _______,  _______,  _______,  _______,  _______,                       KC_LEFT,  KC_DOWN,  KC_UP,   KC_RGHT,  KC_MSTP,  TG(_LOL1),
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  KC_HOME,  KC_PGDN,  KC_PGUP, KC_END,   _______,  _______,
+                                  KC_LGUI, S(KC_MINS),_______,                       _______,  _______,  _______
  ),
 /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -182,20 +178,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ $ y m b o l s left                                        │
    └───────────────────────────────────────────────────────────┘
              ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             │         │         │    =    │         │         │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │    \    │    (    │    )    │         │         │
+             │         │         │    =    │    +    │         │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │    \    │    [    │    ]    │         │         │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │         │    &    │    ^    │    -    │    +    │    *    ├─╯                ╰─┤    |    │    {    │    }    │         │         │         │
+   │         │    !    │    @    │    #    │    $    │    %    ├─╯                ╰─┤    ^    │    &    │    *    │    (    │    )    │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │         │    !    │    @    │    #    │    $    │    %    ││        ││  BOOT  ││         │    [    │    ]    │         │         │         │
+   │         │         │         │    |    │    -    │         ││        ││  BOOT  ││         │    {    │    }    │         │         │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤╰────────╯╰────────╯├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │         │         │         │                    │         │         │         │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘*/
    // rename to symbols
    [_MATH] = LAYOUT_konrad(
-              _______,  _______,  KC_EQL,   _______,  _______,                       KC_BSLS,  S(KC_9),  S(KC_0),  _______,  _______,
-    _______,  S(KC_7),  S(KC_6),  KC_MINS,  S(KC_EQL),S(KC_8),                    S(KC_BSLS),S(KC_LBRC),S(KC_RBRC),_______,  _______,  _______,
-    XXXXXXX,  S(KC_1),  S(KC_2),  S(KC_3),  S(KC_4),  S(KC_5),  _______,   QK_BOOT,  _______,  KC_LBRC,  KC_RBRC,  _______,  _______,  _______,
-                                  _______,  _______,  _______,                       _______,  _______, _______
+              _______,  _______,  KC_EQL,  S(KC_EQL), _______,                       KC_BSLS,  KC_LBRC,  KC_RBRC,  _______,  _______,
+    _______,  S(KC_1),  S(KC_2),  S(KC_3),  S(KC_4),  S(KC_5),                       S(KC_6),  S(KC_7),  S(KC_8),  S(KC_9),  S(KC_0),  _______,
+    XXXXXXX,  _______,  _______, S(KC_BSLS), KC_MINS, _______,  _______,   QK_BOOT,  _______,S(KC_LBRC),S(KC_RBRC),_______,  _______,  XXXXXXX,
+                                  _______,  _______,  _______,                       _______,  _______,  _______
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -230,7 +226,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯
    │  SHFT   │    Q    │    W    │    E    │    R    │    T    ├─╯        
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮
-   │    C    │    A    │    S    │    D    │    F    │    P    ││        │
+   │         │    A    │    S    │    D    │    F    │    P    ││  QUIT  │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤╰────────╯
                                  │   ALT   │   SPC   │  L/CTRL │          
                                  └─────────┴─────────┴─────────┘          
@@ -238,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_LOL1] = LAYOUT_konrad(
               KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                          KC_5,     KC_4,     KC_3,     KC_2,     KC_1,
     MOD_LSFT, KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_T,     KC_R,     KC_E,     KC_W,     KC_Q,     MOD_LSFT,
-    KC_C,     KC_A,     KC_S,     KC_D,     KC_F,     KC_P,     XXXXXXX,   XXXXXXX,  KC_P,     KC_F,     KC_D,     KC_S,     KC_A,     KC_C,
+    XXXXXXX,  KC_A,     KC_S,     KC_D,     KC_F,     KC_P,     TO(_BASE),TO(_BASE), KC_P,     KC_F,     KC_D,     KC_S,     KC_A,     XXXXXXX,
                                   MOD_LALT, KC_SPC,   MO(_LOL2),                     MO(_LOL2),KC_SPC,   MOD_LALT
  ),
 /*
@@ -249,9 +245,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              ┌─────────┬─────────┬─────────┬─────────┬─────────┐          
              │   F1    │   F2    │   F3    │   F4    │   F5    │ ╭╮╭╮╭╮╭X
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯
-   │   TAB   │         │         │         │         │         ├─╯        
+   │   TAB   │  ctrl   │  ctrl   │  ctrl   │  ctrl   │  ctrl   ├─╯        
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮
-   │   QUIT  │         │         │         │         │         ││        │
+   │         │         │         │         │         │         ││        │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤╰────────╯
                                  │         │         │         │          
                                  └─────────┴─────────┴─────────┘          
@@ -259,7 +255,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_LOL2] = LAYOUT_konrad(
               KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                         KC_F5,    KC_F4,    KC_F3,    KC_F2,    KC_F1,
     XXXXXXX,  C(KC_Q),  C(KC_W),  C(KC_E),  C(KC_R),  KC_Y,                          KC_Y,     C(KC_R),  C(KC_E),  C(KC_W),  C(KC_Q),  XXXXXXX,
-    TO(_BASE),XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  TO(_BASE),
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                                   XXXXXXX,  XXXXXXX,  _______,                       _______,  XXXXXXX,  XXXXXXX
  )
 };
@@ -421,7 +417,7 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
       break;
   case _NAVL:
       // update_tri_layer(_NAVL, _NAVR, _SYM);
-      strcpy ( layer_state_str, "Combo    L       :P");
+      strcpy ( layer_state_str, "Nav      L       :P");
       break;
   case _NAVR:
       // update_tri_layer(_NAVL, _NAVR, _SYM);
@@ -437,7 +433,7 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
       strcpy ( layer_state_str, "LoL2");
       break;
   default:
-      strcpy ( layer_state_str, "Qwerty           \\:");
+      strcpy ( layer_state_str, "Qwerty           :D");
   }
   if (dmacro_num < 1) {
     strcpy ( o_text, layer_state_str );
