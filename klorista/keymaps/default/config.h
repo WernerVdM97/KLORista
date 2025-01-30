@@ -5,7 +5,7 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.
 */
 
-#define TAPPING_TERM 200
+#define TAPPING_TERM 210
 #define MASTER_RIGHT
 
 // Enable OLED updates on slave
@@ -14,7 +14,7 @@ for more options.
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD // does this even work..?
-#define RETRO_TAPPING_PER_KEY // consider trying this? activates tap beyond tapping term unless rolled
+// #define RETRO_TAPPING_PER_KEY // consider trying this? activates tap beyond tapping term unless rolled
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
