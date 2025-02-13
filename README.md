@@ -15,7 +15,7 @@
 
 # by Werner
 
-Originally the KLOR Konrad (shoutout @GEIGEIGEIST); KLORista is a 40(+2)-key, column-staggered split-keyboard. 
+Originally the KLOR Konrad (shoutout @GEIGEIGEIST); KLORista is a 38(+2)-key, column-staggered split-keyboard. 
 
 Featuring encoders, OLED displays. Optionally, haptic feedback and sound.
 
@@ -43,6 +43,9 @@ and run
 - [x] program base(Mac/Win), navigation(l/r), symbols, number, LOL- layers
 	- [ ] swaphands toggle
 	- [ ] macros..?
+- [ ] haptics
+- [ ] NUM + backspace
+- [ ] NAVL + esc = backspace
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
