@@ -26,7 +26,7 @@
         "encoder": true,
         "extrakey": true,
         "grave_esc": false,
-        "haptic": false,
+        "haptic": true,
         "key_override": false,
         "magic": false,
         "music": false,
@@ -109,6 +109,9 @@
         },
         "soft_serial_pin": "D2",
         "transport": {
+            "sync": {
+              "haptic": true
+            },
             "protocol": "serial"
         }
     },
