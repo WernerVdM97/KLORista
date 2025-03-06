@@ -40,12 +40,13 @@ and run
 
 ## TODO
 
+- [x] refactor case desgin
 - [x] program base(Mac/Win), navigation(l/r), symbols, number, LOL- layers
 	- [ ] swaphands toggle
 	- [ ] macros..?
-- [ ] haptics
-- [ ] NUM + backspace
-- [ ] NAVL + esc = backspace
+- [x] haptics
+- [x] NUM + backspace
+- [x] NAVR + esc = del
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
