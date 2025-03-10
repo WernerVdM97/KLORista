@@ -29,6 +29,7 @@
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 // wpm value
 char wpm_str[10];
+static int haptic_mode_counter = DRV2605L_DEFAULT_MODE;
 
 // ┌───────────────────────────────────────────────────────────┐
 // │ d e f i n e   l a y e r s                                 │
@@ -119,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
     XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
-                                  ESC_GUI,  OFF_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, BSPC_ALT
+                                  ESC_GUI,  OFF_SPC, NUM_TAB,                        SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -132,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
     KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_MCTL,
-                                  ESC_GUI,  OFF_SPC, NUM_TAB,                       SYM_ENT,  NAVR_SPC, BSPC_ALT
+                                  ESC_GUI,  OFF_SPC, NUM_TAB,                        SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -146,9 +147,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // - setup lock shortcut on mac (eg GUI+l on linux)
   [_OFFH] = LAYOUT_konrad(
                _______, _______,  _______,  C(KC_R),  C(KC_T),                       _______,  _______,  _______,  _______,  _______,
-    OS_SWAP,   _______, _______,  KC_CAPS,  C(KC_F),  C(KC_G),                       _______,  _______,  _______,  _______,  _______,  _______,
-    _______,   _______, _______,  _______,  C(KC_V),  C(KC_B), LGUI(KC_ESC),_______, _______,  _______,  _______,  _______,  _______,  _______,
-                                  KC_DEL,   _______,  KC_ENT,                       _______, S(KC_MINS),KC_DEL
+    OS_SWAP,   _______, _______,  KC_CAPS,  C(KC_F),  C(KC_G),                       HF_RST,   HF_PREV,  HF_NEXT,  _______,  _______,  _______,
+    _______,   _______, _______,  _______,  C(KC_V),  C(KC_B), LGUI(KC_ESC),HF_TOGG, _______,  _______,  _______,  _______,  _______,  _______,
+                                  KC_DEL,   _______,  KC_ENT,                        _______, S(KC_MINS),KC_DEL
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -191,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               _______,  _______,  KC_EQL,  S(KC_EQL), _______,                       KC_BSLS,  KC_LBRC,  KC_RBRC,  _______,  _______,
     _______,  S(KC_1),  S(KC_2),  S(KC_3),  S(KC_4),  S(KC_5),                       S(KC_6),  S(KC_7),  S(KC_8),  S(KC_9),  S(KC_0),  _______,
     XXXXXXX,  _______,  _______, S(KC_BSLS), KC_MINS, _______,  _______,   QK_BOOT,  KC_PSCR,S(KC_LBRC),S(KC_RBRC),_______,  _______,  XXXXXXX,
-                                  KC_LGUI,   _______,  _______,                       _______,  _______,  _______
+                                  KC_LGUI,   _______,  _______,                      _______,  _______,  _______
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -268,7 +269,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void keyboard_post_init_user(void) {
   // Call the post init code.
   #if HAPTIC_ENABLE
-    haptic_disable(); // disables per key haptic feedback by default
+    // haptic_disable(); // disables per key haptic feedback by default
   #endif //HAPTIC ENABLE
 }
 
@@ -534,7 +535,7 @@ static void render_anim(void) {
         }
     }
 
-} 
+}
 
 bool oled_task_kb(void) {
     oled_invert(false);
@@ -575,7 +576,12 @@ bool oled_task_kb(void) {
         oled_set_cursor(0, 2);
         oled_write_P(led_state.caps_lock ? PSTR("CAPS") : PSTR("       "), false);
         oled_set_cursor(0, 4);
-        oled_write_P(led_state.scroll_lock ? PSTR("SCLK") : PSTR("       "), false);
+
+        // haptics
+        char buffer[8];  // Buffer to hold the string representation of the integer
+        itoa(haptic_mode_counter, buffer, 10);  // Base 10 conversio
+        oled_write_P(PSTR("buzz # "), false);
+        oled_write_P(buffer, false);
       }
     }
     return false;
@@ -599,7 +605,33 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {  
+  switch (keycode) {
+// ┌───────────────────────────────────────────────────────────┐
+// │ h a p t i c                                               │
+// └───────────────────────────────────────────────────────────┘
+    case HF_NEXT:
+        // Increment the haptic mode counter, wrapping it between 1 and 123
+        if (haptic_mode_counter < 123) {
+            haptic_mode_counter++;
+        } else {
+            haptic_mode_counter = 1;  // Wrap around to 1
+        }
+        break;
+    case HF_PREV:
+        // Decrement the haptic mode counter, wrapping it between 1 and 123
+        if (haptic_mode_counter > 1) {
+            haptic_mode_counter--;
+        } else {
+            haptic_mode_counter = 123;  // Wrap around to 123
+        }
+        break;
+    case HF_RST:
+        // Reset the counter to the default mode value
+        haptic_mode_counter = DRV2605L_DEFAULT_MODE;
+        break;
+// ┌───────────────────────────────────────────────────────────┐
+// │ u t i l s                                                 │
+// └───────────────────────────────────────────────────────────┘
     case OS_SWAP:
         if (record->event.pressed) {
           if (!keymap_config.swap_lctl_lgui) {
