@@ -6,21 +6,21 @@ for more options.
 */
 
 #define TAPPING_TERM 210
-#define MASTER_RIGHT
+// #define MASTER_RIGHT
 
 // Enable OLED updates on slave
-#define SPLIT_WPM_ENABLE
-#define SPLIT_LED_STATE_ENABLE
+// #define SPLIT_WPM_ENABLE
+// #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_HAPTIC_ENABLE
 
 // Haptics
 #define DRV2605L_FB_ERM_LRA 0
-#define DRV2605L_FB_BRAKEFACTOR 2 /* For 1x:0, 2x:1, 3x:2, 4x:3, 6x:4, 8x:5, 16x:6, Disable Braking:7 */
-#define DRV2605L_FB_LOOPGAIN 2 /* For  Low:0, Medium:1, High:2, Very High:3 */
+#define DRV2605L_FB_BRAKEFACTOR 1 /* For 1x:0, 2x:1, 3x:2, 4x:3, 6x:4, 8x:5, 16x:6, Disable Braking:7 */
+#define DRV2605L_FB_LOOPGAIN 0 /* For  Low:0, Medium:1, High:2, Very High:3 */
 #define DRV2605L_RATED_VOLTAGE 2.4
 #define DRV2605L_V_PEAK 5
-#define DRV2605L_DEFAULT_MODE 4
-#define DRV2605L_GREETING 83
+#define DRV2605L_DEFAULT_MODE 13
+#define DRV2605L_GREETING 15
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD // does this even work..?
