@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <string.h>
 #ifdef HAPTIC_ENABLE
-#include "drivers/haptic/DRV2605L.h"
+#include "drivers/haptic/drv2605l.h"
 #endif //HAPTIC ENABLE
 
 
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT_konrad(
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
-    XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+    XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,   KC_MUTE, LGUI(KC_ESC), KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
                                   ESC_GUI,  OFF_SPC, NUM_TAB,                        SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE2] = LAYOUT_konrad(
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_GRV,   KC_A,     KC_S,     SHT_D,    CTL_F,    KC_G,                          KC_H,     CTL_J,    SHT_K,    KC_L,     KC_SCLN,  KC_QUOT,
-    KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_MUTE,   KC_SLEP,  KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_MCTL,
+    KC_ESC,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,   KC_MUTE, LGUI(KC_ESC), KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_MCTL,
                                   ESC_GUI,  OFF_SPC, NUM_TAB,                        SYM_ENT,  NAVR_SPC, BSPC_ALT
  ),
  /*
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_OFFH] = LAYOUT_konrad(
                _______, _______,  _______,  C(KC_R),  C(KC_T),                       _______,  _______,  _______,  _______,  _______,
     OS_SWAP,   _______, _______,  KC_CAPS,  C(KC_F),  C(KC_G),                       HF_RST,   HF_PREV,  HF_NEXT,  _______,  _______,  _______,
-    _______,   _______, _______,  _______,  C(KC_V),  C(KC_B), LGUI(KC_ESC),HF_TOGG, _______,  _______,  _______,  _______,  _______,  _______,
+    _______,   _______, _______,  _______,  C(KC_V),  C(KC_B),  _______,    HF_TOGG, _______,  _______,  _______,  _______,  _______,  _______,
                                   KC_DEL,   _______,  KC_ENT,                        _______, S(KC_MINS),KC_DEL
  ),
  /*
@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │         │    1    │    2    │    3    │    4    │    5    ├─╯                ╰─┤    6    │    7    │    8    │    9    │    0    │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │         │   F11   │   F12   │  ^cpy   │  ^pste  │         ││        ││        ││         │         │    ,    │    .    │         │         │
+   │         │   F11   │   F12   │  ^cpy   │  ^pste  │         ││  BOOT  ││        ││         │         │    ,    │    .    │         │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤╰────────╯╰────────╯├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │         │         │   ^^^   │                    │         │         │         │
                                  └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘
@@ -213,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_NUM] = LAYOUT_konrad(
              KC_F1,     KC_F2,    KC_F3,    KC_F4,    KC_F5,                         KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,
     _______, KC_1,      KC_2,     KC_3,     KC_4,     KC_5,                          KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0  ,  _______,
-    XXXXXXX, KC_F11,    KC_F12, S(C(KC_C)),S(C(KC_V)),_______,  _______,   _______,  _______,  _______,  _______,  _______,  _______, _______,
+    XXXXXXX, KC_F11,    KC_F12, S(C(KC_C)),S(C(KC_V)),_______,  QK_BOOT,   _______,  _______,  _______,  _______,  _______,  _______, _______,
                                   _______,  _______,  _______,                       _______,  _______,  _______
  ),
  /*
@@ -551,7 +551,7 @@ bool oled_task_kb(void) {
         oled_write(" A atrox", false);
 
     } else{
-    if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
+    if (!is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
 
         // layer status ──────────────────────────────────────────────────┐
         #ifdef DYNAMIC_MACRO_ENABLE
@@ -578,10 +578,11 @@ bool oled_task_kb(void) {
         oled_set_cursor(0, 4);
 
         // haptics
-        char buffer[8];  // Buffer to hold the string representation of the integer
-        itoa(haptic_mode_counter, buffer, 10);  // Base 10 conversio
+        // char buffer[8];  // Buffer to hold the string representation of the integer
+        // itoa(haptic_mode_counter, buffer, 10);  // Base 10 conversio
+        oled_set_cursor(0, 7);
         oled_write_P(PSTR("buzz # "), false);
-        oled_write_P(buffer, false);
+        // oled_write_P(buffer, false);
       }
     }
     return false;
