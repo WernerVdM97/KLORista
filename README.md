@@ -11,7 +11,7 @@
 ██       █     █          ▀▄            ▄▀      █         █   █  █     █     █       █     █  
 █         █    █▄▄▄▄▄▄▄▄    ▀▀▀▄▄▄▄▄▄▀▀▀        █          █  █   █████      █        ███████ 
 ```
-![](/docs/images/photo.jpg)
+![Layer-0](/docs/images/case-v2.jpg)
 
 # by Werner
 
@@ -26,9 +26,7 @@ Software deviations from the original design (and a key switchplate with larger 
 QWERTY base with navigation-, number-, and symbol layers.\
 ft. League of Legends layer (*left-only).
 
-![Layer-0](/docs/images/case-v2.jpg)
-
-![Layer-0](/docs/images/case_back.jpg)
+![Layer-0](/docs/images/layout.png)
 
 ## RP2040 Sea-Picro with QMK 
 
@@ -39,6 +37,8 @@ Place in the keyboards folder of your qmk installation.
 and run
 
 `qmk compile -kb klorista -km default`
+
+![Layer-0](/docs/images/case_back.jpg)
 
 ## TODO
 
