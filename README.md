@@ -17,9 +17,9 @@
 
 Originally the KLOR Konrad (shoutout @GEIGEIGEIST); KLORista is a 38(+2)-key, column-staggered split-keyboard. 
 
-Featuring encoders, OLED displays. Optionally, haptic feedback and sound.
+Features encoders, OLED displays, and haptic feedback.
 
-Software deviations from the original design (and a key switchplate with larger tolerance) are made in this repo.
+Software and case deviations from the original design are made in this repo.
 
 ## Multi Layer Keymap
 
@@ -36,7 +36,7 @@ Place in the keyboards folder of your qmk installation.
 
 and run
 
-`qmk compile -kb klorista -km default`
+`qmk compile -kb klorista -km optimal`
 
 ![Layer-0](/docs/images/case_back.jpg)
 
@@ -52,3 +52,4 @@ and run
 - [x] encoder layers
 - [x] OLED keyboard state
 - [x] WPM Bongo cat OLED animation
+  - [x] Deprecate animations (+performance)
